@@ -29,4 +29,23 @@ public class Main {
                 break;
         }
     }
+
+    public static void anadir(String[][] series) {
+        Scanner sc = new Scanner(System.in);
+        int fila_vacia = 0;
+
+        for(int fila = 0; fila < series.length; fila++) {
+            if(series[fila][0] == null) {
+                fila_vacia = fila;
+                break;
+            }
+        }
+
+        System.out.println("Escribe el nombre de la series que quieres añadir: ");
+        series[fila_vacia][0] = sc.next();
+        System.out.println("Escribe la duración de la series en minutos: ");
+        series[fila_vacia][1] = sc.next();
+        System.out.println("Escribe la valoración de la serie: ");
+        series[fila_vacia][2] = sc.next();
+    }
 }
