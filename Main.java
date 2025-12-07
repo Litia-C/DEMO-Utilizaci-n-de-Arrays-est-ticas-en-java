@@ -17,13 +17,13 @@ public class Main {
 
         switch (opcion) {
             case 1:
-                mostrar();
+                mostrar(series);
                 break;
             case 2:
-                añadir();
+                anadir(series);
                 break;
             case 3:
-                quitar();
+                quitar(series);
                 break;
             default:
                 break;
