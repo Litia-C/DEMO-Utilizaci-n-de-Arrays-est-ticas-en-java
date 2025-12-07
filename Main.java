@@ -48,4 +48,24 @@ public class Main {
         System.out.println("Escribe la valoración de la serie: ");
         series[fila_vacia][2] = sc.next();
     }
+
+    public static void quitar(String[][] series) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Escribe el nombre de la serie que quieres borrar: ");
+        String nombre = sc.next();
+
+        for(int row = 0; row < series.length; row++) {
+            if(series[row][0].equals(nombre)) {
+                series[row][0] = null;
+                series[row][1] = null;
+                series[row][2] = null;
+                System.out.println(nombre + "Ha sido eleminada de la lista");
+                break;
+            }
+            else if (row + 1 == series.length && !(series[row][0].equals(nombre))) {
+                System.out.println("Esta serie no esta en la lista");
+            }
+        }
+    }
 }
