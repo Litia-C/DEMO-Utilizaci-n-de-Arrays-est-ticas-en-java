@@ -41,6 +41,7 @@ public class Main {
 
         } while(opcion2 != 2);
 
+        System.out.println("Gracias por usar este programa. Hasta la proxima");
     }
 
     public static void anadir(String[][] series) {
