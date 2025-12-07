@@ -49,7 +49,7 @@ public class Main {
         int fila_vacia = 0;
 
         for (int fila = 0; fila < series.length; fila++) {
-            if (series[fila][0] == null) {
+            if (series[fila][0].equals("null")) {
                 fila_vacia = fila;
                 break;
             }
@@ -71,9 +71,9 @@ public class Main {
 
         for (int row = 0; row < series.length; row++) {
             if (series[row][0].equals(nombre)) {
-                series[row][0] = null;
-                series[row][1] = null;
-                series[row][2] = null;
+                series[row][0] = "null";
+                series[row][1] = "null";
+                series[row][2] = "null";
                 System.out.println(nombre + "Ha sido eleminada de la lista");
                 break;
             } else if (row + 1 == series.length && !(series[row][0].equals(nombre))) {
