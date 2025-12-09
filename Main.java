@@ -73,6 +73,7 @@ public class Main {
 
     public static void anadir(String[][] series) {
         Scanner sc = new Scanner(System.in);
+        boolean espacio_lista = true;
         int fila_vacia = 0;
 
         for (int fila = 0; fila < series.length; fila++) {
@@ -80,14 +81,20 @@ public class Main {
                 fila_vacia = fila;
                 break;
             }
+            if(fila + 1 == series.length && !(series[fila][0].equals("null"))) espacio_lista = false;
         }
 
-        System.out.println("Escribe el nombre de la series que quieres añadir: ");
-        series[fila_vacia][0] = sc.nextLine();
-        System.out.println("Escribe la duración de la series en minutos: ");
-        series[fila_vacia][1] = sc.nextLine();
-        System.out.println("Escribe la valoración de la serie: ");
-        series[fila_vacia][2] = sc.nextLine();
+        if(espacio_lista) {
+            System.out.println("Escribe el nombre de la series que quieres añadir: ");
+            series[fila_vacia][0] = sc.nextLine();
+            System.out.println("Escribe la duración de la series en minutos: ");
+            series[fila_vacia][1] = sc.nextLine();
+            System.out.println("Escribe la valoración de la serie: ");
+            series[fila_vacia][2] = sc.nextLine();
+        }
+        else {
+            System.out.println("La lista esta llena. Para añadir una serie, antes tienes que eliminar una");
+        }
     }
 
     public static void quitar(String[][] series) {
