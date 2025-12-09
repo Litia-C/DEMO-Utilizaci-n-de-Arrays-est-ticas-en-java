@@ -4,54 +4,55 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //String[][] series = new String[30][3];
+        // String[][] series = new String[30][3];
 
-            //SERIES PREDETERMINADAS
-            String[][] series = 
-            {{"null", "null", "null"},
-            {"C Serie", "12 Min", "3/5"},
-            {"B serie", "50 Min", "4/5"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},
-            {"null", "null", "null"},};
-            
+        // SERIES PREDETERMINADAS
+        String[][] series = { { "null", "null", "null" },
+                { "C Serie", "12 Min", "3/5" },
+                { "B serie", "50 Min", "4/5" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" },
+                { "null", "null", "null" }, };
 
         Scanner sc = new Scanner(System.in);
         int opcion1 = 1, opcion2 = 1;
-    
-        // En cada fila hay tres columnas: la 1a con los nombres de las series, la 2a con la duración en minutos y la 3a con la valoración
+
+        // En cada fila hay tres columnas: la 1a con los nombres de las series, la 2a
+        // con la duración en minutos y la 3a con la valoración
         do {
             System.out.println("Bienvenido al selector de series\n");
 
             do {
-                if(opcion1 < 1 || opcion1 > 4) System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
+                if (opcion1 < 1 || opcion1 > 4)
+                    System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
                 else {
                     System.out.println("¿Que quieres hacer?");
                     System.out.println("1. Ver lista de series");
                     System.out.println("2. Añadir series");
                     System.out.println("3. Quitar series");
                     System.out.println("4. Salir del programa");
-            
+
                     opcion1 = sc.nextInt();
                 }
 
-            } while(opcion1 < 1 || opcion1 > 4);
+            } while (opcion1 < 1 || opcion1 > 4);
 
-            if(opcion1 == 4) break;
+            if (opcion1 == 4)
+                break;
 
             switch (opcion1) {
                 case 1:
@@ -68,7 +69,8 @@ public class Main {
             }
 
             do {
-                if(opcion2 < 1 || opcion2 > 2) System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
+                if (opcion2 < 1 || opcion2 > 2)
+                    System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
                 else {
                     System.out.println("¿Que quieres hacer?");
                     System.out.println("1. Reiniciar");
@@ -77,8 +79,8 @@ public class Main {
                     opcion2 = sc.nextInt();
                 }
             } while (opcion2 < 1 || opcion2 > 2);
-            
-        } while(opcion2 != 2);
+
+        } while (opcion2 != 2);
 
         System.out.println("Gracias por usar este programa. Hasta la proxima");
     }
@@ -93,42 +95,59 @@ public class Main {
                 fila_vacia = fila;
                 break;
             }
-            if(fila + 1 == series.length && !(series[fila][0].equals("null"))) espacio_lista = false;
+            if (fila + 1 == series.length && !(series[fila][0].equals("null")))
+                espacio_lista = false;
         }
 
-        if(espacio_lista) {
+        if (espacio_lista) {
             System.out.println("Escribe el nombre de la series que quieres añadir: ");
             series[fila_vacia][0] = sc.nextLine();
             System.out.println("Escribe la duración de la series en minutos: ");
             series[fila_vacia][1] = sc.nextLine();
             System.out.println("Escribe la valoración de la serie: ");
             series[fila_vacia][2] = sc.nextLine();
-        }
-        else {
+        } else {
             System.out.println("La lista esta llena. Para añadir una serie, antes tienes que eliminar una");
         }
     }
 
     public static void quitar(String[][] series) {
         Scanner sc = new Scanner(System.in);
+        boolean existe_serie = false;
+        int respuesta = 1;
 
-        System.out.println("Escribe el nombre de la serie que quieres borrar: ");
-        String nombre = sc.next();
+        do {
+            System.out.println("Escribe el nombre de la serie que quieres borrar: ");
+            String nombre = sc.nextLine();
 
-        for (int row = 0; row < series.length; row++) {
-            if (series[row][0].equals(nombre)) {
-                series[row][0] = "null";
-                series[row][1] = "null";
-                series[row][2] = "null";
-                System.out.println(nombre + " Ha sido eleminada de la lista");
-                break;
-        }
+            for (int row = 0; row < series.length; row++) {
+                if (series[row][0].equals(nombre)) {
+                    series[row][0] = "null";
+                    series[row][1] = "null";
+                    series[row][2] = "null";
+                    System.out.println(nombre + " Ha sido eleminada de la lista");
+                    existe_serie = true;
+                    break;
+                }
+            }
+
+            if (!existe_serie) {
+                System.out.println(nombre + " no esta en la lista");
+                do {
+                    if (respuesta < 1 || respuesta > 2)
+                        System.out.println("Error\n");
+                    System.out.println("¿Quieres volver a intentar eliminar una serie?");
+                    System.out.println("1. Si");
+                    System.out.println("2. NO");
+                    respuesta = sc.nextInt();
+                    sc.nextLine();
+                } while (respuesta < 1 || respuesta > 2);
+            }
+        } while (respuesta == 1 && !existe_serie);
     }
-}
-
 
     // Función para mostrar la lista
-    public static void  mostrar (String[][] series){
+    public static void mostrar(String[][] series) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("¿De qué forma quieres ver la lista?");
@@ -137,90 +156,92 @@ public class Main {
 
         int opcion = sc.nextInt();
         switch (opcion) {
-                    // Mostrar lista sin alterar
+            // Mostrar lista sin alterar
             case 1:
-                    for (int i = 0; i < series.length; i++){
-                        for (int j = 0; j < series[i].length; j++){
-                            if (!series[i][2].equals("null")){
+                for (int i = 0; i < series.length; i++) {
+                    for (int j = 0; j < series[i].length; j++) {
+                        if (!series[i][2].equals("null")) {
                             System.out.print(series[i][j] + " ");
-                            }
-            }
-                            if (!series[i][2].equals("null")){
-                            System.out.println();
-                            }
-        }
-            break;
-                    // FILTROS
-            case 2: 
-            
-        System.out.println("¿Qué filtro quieres aplicar?");
-        System.out.println("1. Ordenar por nombre");
-        System.out.println("2. Ordenar por duración");
-        System.out.println("3. Ordenar por valoración");
-        
-        int opcion2 = sc.nextInt();
+                        }
+                    }
+                    if (!series[i][2].equals("null")) {
+                        System.out.println();
+                    }
+                }
+                break;
+            // FILTROS
+            case 2:
 
-                    switch (opcion2) {
+                System.out.println("¿Qué filtro quieres aplicar?");
+                System.out.println("1. Ordenar por nombre");
+                System.out.println("2. Ordenar por duración");
+                System.out.println("3. Ordenar por valoración");
 
-                        case 1:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos elementos...
-                    Arrays.sort(series, (a, b) -> a[0].compareTo(b[0]));
+                int opcion2 = sc.nextInt();
+
+                switch (opcion2) {
+
+                    case 1:
+                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+                        // elementos...
+                        Arrays.sort(series, (a, b) -> a[0].compareTo(b[0]));
 
                         // Bucle para mostrar las filas ordenadas por nombre :)
-                        for (int i = 0; i < series.length; i++){
-                            for (int j = 0; j < series[i].length; j++){
-                                if (!series[i][2].equals("null")){
+                        for (int i = 0; i < series.length; i++) {
+                            for (int j = 0; j < series[i].length; j++) {
+                                if (!series[i][2].equals("null")) {
                                     System.out.print(series[i][j] + " ");
                                 }
-                                }
-                                if (!series[i][2].equals("null")){
-                                    System.out.println();
-                                }
-                    }
+                            }
+                            if (!series[i][2].equals("null")) {
+                                System.out.println();
+                            }
+                        }
 
-                    break;
+                        break;
 
-                        case 2:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos elementos...
-                    Arrays.sort(series, (a, b) -> a[1].compareTo(b[1]));
+                    case 2:
+                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+                        // elementos...
+                        Arrays.sort(series, (a, b) -> a[1].compareTo(b[1]));
 
                         // Bucle para mostrar las filas ordenadas por duración... aunque sea una String
-                        for (int i = 0; i < series.length; i++){
-                            for (int j = 0; j < series[i].length; j++){
-                                if (!series[i][2].equals("null")){
+                        for (int i = 0; i < series.length; i++) {
+                            for (int j = 0; j < series[i].length; j++) {
+                                if (!series[i][2].equals("null")) {
                                     System.out.print(series[i][j] + " ");
                                 }
-                                }
-                                if (!series[i][2].equals("null")){
-                                    System.out.println();
-                                }
-                    }
+                            }
+                            if (!series[i][2].equals("null")) {
+                                System.out.println();
+                            }
+                        }
 
-                    break;
-                        case 3:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos elementos...
-                    Arrays.sort(series, (a, b) -> b[2].compareTo(a[2]));
+                        break;
+                    case 3:
+                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+                        // elementos...
+                        Arrays.sort(series, (a, b) -> b[2].compareTo(a[2]));
 
-                        // Bucle para mostrar las filas ordenadas por valoración, una vez más aunque sea una Stringa
-                        for (int i = 0; i < series.length; i++){
-                            for (int j = 0; j < series[i].length; j++){
-                                if (!(series[i][2].equals("null"))){
+                        // Bucle para mostrar las filas ordenadas por valoración, una vez más aunque sea
+                        // una Stringa
+                        for (int i = 0; i < series.length; i++) {
+                            for (int j = 0; j < series[i].length; j++) {
+                                if (!(series[i][2].equals("null"))) {
                                     System.out.print(series[i][j] + " ");
                                 }
-                                }
-                                if (!(series[i][2].equals("null"))){
-                                    System.out.println();
-                    }
-                    }
-                    
-                    break;
-    }
+                            }
+                            if (!(series[i][2].equals("null"))) {
+                                System.out.println();
+                            }
+                        }
 
+                        break;
+                }
 
         }
 
-        
     }
 }
 
-
+public static void 
