@@ -10,7 +10,24 @@ public class Main {
             String[][] series = 
             {{"null", "null", "null"},
             {"C Serie", "12 Min", "3/5"},
-            {"B serie", "50 Min", "4/5"}};
+            {"B serie", "50 Min", "4/5"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},
+            {"null", "null", "null"},};
             
 
         Scanner sc = new Scanner(System.in);
