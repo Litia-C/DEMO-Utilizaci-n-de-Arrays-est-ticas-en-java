@@ -31,18 +31,25 @@ public class Main {
             
 
         Scanner sc = new Scanner(System.in);
-        int opcion1 = 0, opcion2 = 0;
+        int opcion1 = 1, opcion2 = 1;
     
         // En cada fila hay tres columnas: la 1a con los nombres de las series, la 2a con la duración en minutos y la 3a con la valoración
         do {
             System.out.println("Bienvenido al selector de series\n");
-            System.out.println("¿Que quieres hacer?");
-            System.out.println("1. Ver lista de series");
-            System.out.println("2. Añadir series");
-            System.out.println("3. Quitar series");
-            System.out.println("4. Salir del programa");
-    
-           opcion1 = sc.nextInt();
+
+            do {
+                if(opcion1 < 1 || opcion1 > 4) System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
+                else {
+                    System.out.println("¿Que quieres hacer?");
+                    System.out.println("1. Ver lista de series");
+                    System.out.println("2. Añadir series");
+                    System.out.println("3. Quitar series");
+                    System.out.println("4. Salir del programa");
+            
+                    opcion1 = sc.nextInt();
+                }
+
+            } while(opcion1 < 1 || opcion1 > 4);
 
             if(opcion1 == 4) break;
 
@@ -60,12 +67,17 @@ public class Main {
                     break;
             }
 
-            System.out.println("¿Que quieres hacer?");
-            System.out.println("1. Reiniciar");
-            System.out.println("2. Salir");
+            do {
+                if(opcion2 < 1 || opcion2 > 2) System.out.println("La opcion escigida no existe. Escoge otra vez:\n");
+                else {
+                    System.out.println("¿Que quieres hacer?");
+                    System.out.println("1. Reiniciar");
+                    System.out.println("2. Salir");
 
-            opcion2 = sc.nextInt();
-
+                    opcion2 = sc.nextInt();
+                }
+            } while (opcion2 < 1 || opcion2 > 2);
+            
         } while(opcion2 != 2);
 
         System.out.println("Gracias por usar este programa. Hasta la proxima");
