@@ -134,8 +134,8 @@ public class Main {
             if (!existe_serie) {
                 System.out.println(nombre + " no esta en la lista");
                 do {
-                    if (respuesta < 1 || respuesta > 2)
-                        System.out.println("Error\n");
+                    if (respuesta < 1 || respuesta > 2) System.out.println("Error\n");
+
                     System.out.println("¿Quieres volver a intentar eliminar una serie?");
                     System.out.println("1. Si");
                     System.out.println("2. NO");
@@ -149,12 +149,19 @@ public class Main {
     // Función para mostrar la lista
     public static void mostrar(String[][] series) {
         Scanner sc = new Scanner(System.in);
+        int opcion = 1, opcion2 = 1;
 
-        System.out.println("¿De qué forma quieres ver la lista?");
-        System.out.println("1. Ver la lista sin cambios");
-        System.out.println("2. Aplicar filtros");
+        do {
+            if(opcion < 1 || opcion > 2) System.out.println("Error\n");
 
-        int opcion = sc.nextInt();
+            System.out.println("¿De qué forma quieres ver la lista?");
+            System.out.println("1. Ver la lista sin cambios");
+            System.out.println("2. Aplicar filtros");
+
+            opcion = sc.nextInt();
+
+        } while(opcion < 1 || opcion > 2);
+
         switch (opcion) {
             // Mostrar lista sin alterar
             case 1:
@@ -172,12 +179,17 @@ public class Main {
             // FILTROS
             case 2:
 
-                System.out.println("¿Qué filtro quieres aplicar?");
-                System.out.println("1. Ordenar por nombre");
-                System.out.println("2. Ordenar por duración");
-                System.out.println("3. Ordenar por valoración");
+                do {
+                    if(opcion2 < 1 || opcion2 > 3) System.out.println("Error\n");
 
-                int opcion2 = sc.nextInt();
+                    System.out.println("¿Qué filtro quieres aplicar?");
+                    System.out.println("1. Ordenar por nombre");
+                    System.out.println("2. Ordenar por duración");
+                    System.out.println("3. Ordenar por valoración");
+
+                    opcion2 = sc.nextInt();
+
+                } while (opcion2 < 1 || opcion2 > 3);
 
                 switch (opcion2) {
 
