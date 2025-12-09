@@ -182,60 +182,13 @@ public class Main {
                 switch (opcion2) {
 
                     case 1:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
-                        // elementos...
-                        Arrays.sort(series, (a, b) -> a[0].compareTo(b[0]));
-
-                        // Bucle para mostrar las filas ordenadas por nombre :)
-                        for (int i = 0; i < series.length; i++) {
-                            for (int j = 0; j < series[i].length; j++) {
-                                if (!series[i][2].equals("null")) {
-                                    System.out.print(series[i][j] + " ");
-                                }
-                            }
-                            if (!series[i][2].equals("null")) {
-                                System.out.println();
-                            }
-                        }
-
+                        filtro_nombre(series);
                         break;
-
                     case 2:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
-                        // elementos...
-                        Arrays.sort(series, (a, b) -> a[1].compareTo(b[1]));
-
-                        // Bucle para mostrar las filas ordenadas por duración... aunque sea una String
-                        for (int i = 0; i < series.length; i++) {
-                            for (int j = 0; j < series[i].length; j++) {
-                                if (!series[i][2].equals("null")) {
-                                    System.out.print(series[i][j] + " ");
-                                }
-                            }
-                            if (!series[i][2].equals("null")) {
-                                System.out.println();
-                            }
-                        }
-
+                        filtro_duracion(series);
                         break;
                     case 3:
-                        // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
-                        // elementos...
-                        Arrays.sort(series, (a, b) -> b[2].compareTo(a[2]));
-
-                        // Bucle para mostrar las filas ordenadas por valoración, una vez más aunque sea
-                        // una Stringa
-                        for (int i = 0; i < series.length; i++) {
-                            for (int j = 0; j < series[i].length; j++) {
-                                if (!(series[i][2].equals("null"))) {
-                                    System.out.print(series[i][j] + " ");
-                                }
-                            }
-                            if (!(series[i][2].equals("null"))) {
-                                System.out.println();
-                            }
-                        }
-
+                        filtro_valoracion(series);
                         break;
                 }
 
@@ -244,4 +197,57 @@ public class Main {
     }
 }
 
-public static void 
+public static void filtro_nombre(String[][] series) {
+    // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+    // elementos...
+    Arrays.sort(series, (a, b) -> a[0].compareTo(b[0]));
+
+    // Bucle para mostrar las filas ordenadas por nombre :)
+    for (int i = 0; i < series.length; i++) {
+        for (int j = 0; j < series[i].length; j++) {
+            if (!series[i][2].equals("null")) {
+                System.out.print(series[i][j] + " ");
+            }
+        }
+        if (!series[i][2].equals("null")) {
+            System.out.println();
+        }
+    }
+}
+
+public static void filtro_duracion(String[][] series) {
+    // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+    // elementos...
+    Arrays.sort(series, (a, b) -> a[1].compareTo(b[1]));
+
+    // Bucle para mostrar las filas ordenadas por duración... aunque sea una String
+    for (int i = 0; i < series.length; i++) {
+        for (int j = 0; j < series[i].length; j++) {
+            if (!series[i][2].equals("null")) {
+                System.out.print(series[i][j] + " ");
+            }
+        }
+        if (!series[i][2].equals("null")) {
+            System.out.println();
+        }
+    }
+}
+
+public static void filtro_valoracion(String[][] series) {
+    // Esto ayuda a ordenar filas o columnas en una array2D comparando dos
+    // elementos...
+    Arrays.sort(series, (a, b) -> b[2].compareTo(a[2]));
+
+    // Bucle para mostrar las filas ordenadas por valoración, una vez más aunque sea
+    // una Stringa
+    for (int i = 0; i < series.length; i++) {
+        for (int j = 0; j < series[i].length; j++) {
+            if (!(series[i][2].equals("null"))) {
+                System.out.print(series[i][j] + " ");
+            }
+        }
+        if (!(series[i][2].equals("null"))) {
+            System.out.println();
+        }
+    }
+}
