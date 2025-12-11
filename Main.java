@@ -7,11 +7,11 @@ public class Main {
         // String[][] series = new String[30][3];
 
         // SERIES PREDETERMINADAS
-        String[][] series = { { "Breaking Bad", "2930 Min", "5/5" },
-                { "Jojo's Bizzarre Adventure: Stone Ocean", "937 Min", "3/5" },
-                { "Milya Broken", "253 Min", "1/5" },
-                { "I cannot Drown", "665 Min", "4/5" },
-                { ".flow", "663 Min", "0/5" },
+        String[][] series = { { "Breaking Bad", "2293 Min", "5/5" },
+                { "Jojo's Bizzarre Adventure: Stone Ocean", "0937 Min", "3/5" },
+                { "Milya Broken", "0253 Min", "1/5" },
+                { "I cannot Drown", "0665 Min", "4/5" },
+                { ".flow", "0663 Min", "0/5" },
                 { "null", "null", "null" },
                 { "null", "null", "null" },
                 { "null", "null", "null" },
@@ -99,7 +99,7 @@ public class Main {
         if (espacio_lista) {
             System.out.println("\nEscribe el nombre de la series que quieres añadir: ");
             series[fila_vacia][0] = sc.nextLine();
-            System.out.println("Escribe la duración de la series en minutos (x Min): ");
+            System.out.println("Escribe la duración de la series en minutos con 4 dígitos (xxxx Min): ");
             series[fila_vacia][1] = sc.nextLine();
             System.out.println("Escribe la valoración de la serie (x/5): ");
             series[fila_vacia][2] = sc.nextLine();
